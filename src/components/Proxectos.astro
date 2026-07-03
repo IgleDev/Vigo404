@@ -1,0 +1,40 @@
+---
+import { CONFIG } from '../config/index'
+---
+
+<article>
+  <span class="mb-8 inline-flex items-center gap-2.5 rounded-full border border-foam/[0.14] px-3.5 py-[7px] font-mono text-[12.5px] uppercase tracking-[0.12em] text-mist before:content-['·'] before:text-[22px] before:leading-none before:text-amber">
+    proxectos
+  </span>
+
+  <div class="max-w-[620px]">
+    <h2 class="font-display text-[clamp(28px,3.6vw,38px)] font-semibold leading-tight tracking-tight">
+      Aínda non hai nada aquí. <span class="text-mist">Esa é a idea de partida.</span>
+    </h2>
+    <p class="mt-5 text-lg leading-relaxed text-foam/[0.8]">
+      Vigo404 non vai amosar proxectos de escaparate, vai construílos coa xente
+      que forma parte diso. Un GitHub compartido, ideas propostas no grupo, e
+      quen queira botar unha man, bótaa.
+    </p>
+  </div>
+
+  <div class="mt-12 flex flex-col items-start gap-6 rounded-md border border-dashed border-foam/20 p-8 sm:flex-row sm:items-center sm:justify-between">
+    <div class="flex items-center gap-4">
+      <span class="font-mono text-2xl text-mist">＋</span>
+      <p class="font-mono text-sm leading-relaxed text-mist">
+        primeiro repositorio<br />aínda por crear
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-4">
+      <a href={CONFIG.GITHUB_URL} target="_blank" rel="noopener noreferrer"
+        class="rounded-[3px] border border-foam/20 px-5 py-3 font-mono text-sm text-foam transition-colors hover:border-foam hover:bg-foam/[0.06] focus-visible:border-foam focus-visible:outline focus-visible:outline-2 focus-visible:outline-foam">
+        Ver o GitHub
+      </a>
+      <a href="#unete"
+        class="rounded-[3px] bg-amber px-5 py-3 font-mono text-sm font-medium text-deep-2 transition-colors hover:bg-amber-light focus-visible:bg-amber-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-foam">
+        Propón un proxecto
+      </a>
+    </div>
+  </div>
+</article>

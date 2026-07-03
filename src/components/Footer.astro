@@ -1,0 +1,11 @@
+---
+import { CONFIG } from '../config/index';
+---
+
+<footer class="mx-auto flex max-w-[1180px] flex-col items-center gap-3 px-5 py-10 text-center sm:px-8">
+  <div class="flex items-center gap-2.5 font-mono text-sm text-mist">
+    <span class="h-[6px] w-[6px] rounded-full bg-amber"></span>
+    {CONFIG.APP_NAME}
+  </div>
+  <p class="font-mono text-xs text-mist/70">Feito en Vigo, Galiza — {new Date().getFullYear()}</p>
+</footer>

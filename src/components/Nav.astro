@@ -1,0 +1,16 @@
+---
+import { CONFIG } from "../config";
+---
+
+<nav class="mx-auto flex max-w-[1180px] items-center justify-between px-5 py-7 sm:px-8">
+  <div class="flex items-center gap-2.5 font-mono text-[15px] font-medium">
+    <span class="motion-safe-only h-[7px] w-[7px] flex-shrink-0 animate-pulse-beacon rounded-full bg-amber"></span>
+    {CONFIG.APP_NAME}
+  </div>
+  <div class="hidden items-center gap-9 font-mono text-[13px] tracking-wide text-mist md:flex">
+    <a href="#sobre" class="transition-colors hover:text-foam">sobre</a>
+    <a href="#eventos" class="transition-colors hover:text-foam">eventos</a>
+    <a href="#proxectos" class="transition-colors hover:text-foam">proxectos</a>
+    <a href="#unete" class="rounded-[3px] bg-foam px-4 py-2 font-medium text-deep-2 transition-colors hover:bg-amber">únete →</a>
+  </div>
+</nav>

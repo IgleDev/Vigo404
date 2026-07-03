@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,18..144,400;0,18..144,500;1,18..144,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-deep-2 text-foam font-body antialiased;
+}
+
+/* fondo con dous focos radiais suaves, coma na versión HTML orixinal */
+.bg-hero {
+  background:
+    radial-gradient(ellipse 120% 80% at 15% -10%, rgba(242, 167, 59, 0.10), transparent 55%),
+    radial-gradient(ellipse 100% 70% at 100% 100%, rgba(127, 166, 160, 0.14), transparent 60%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe-only {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Sobre from '../components/Sobre.astro';
+import Eventos from '../components/Eventos.astro';
+import Proxectos from '../components/Proxectos.astro';
+import Unete from '../components/Unete.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Nav />
+  <Hero />
+  <section id="sobre" class="mx-auto max-w-[1180px] px-5 py-24 sm:px-8 sm:py-32">
+    <Sobre />
+  </section>
+  <section id="eventos" class="border-y border-foam/[0.08] bg-deep-2/60">
+    <Eventos />
+  </section>
+  <section id="proxectos" class="mx-auto max-w-[1180px] px-5 py-24 sm:px-8 sm:py-28">
+    <Proxectos />
+  </section>
+  <section id="unete" class="bg-hero relative overflow-hidden border-t border-foam/[0.08]">
+    <Unete />
+  </section>
+  <Footer />
+</Layout>

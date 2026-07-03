@@ -1,0 +1,36 @@
+---
+import { CONFIG } from '../config/index';
+---
+
+<article>
+  <div class="mx-auto max-w-[1180px] px-5 py-24 sm:px-8 sm:py-28">
+    <span class="mb-8 inline-flex items-center gap-2.5 rounded-full border border-foam/[0.14] px-3.5 py-[7px] font-mono text-[12.5px] uppercase tracking-[0.12em] text-mist before:content-['·'] before:text-[22px] before:leading-none before:text-amber">
+      eventos
+    </span>
+
+    <div class="flex flex-col items-start gap-10 md:flex-row md:items-center md:justify-between">
+      <div class="max-w-[520px]">
+        <h2 class="font-display text-[clamp(28px,3.6vw,38px)] font-semibold leading-tight tracking-tight">
+          Aínda non hai ningún evento publicado.
+        </h2>
+        <p class="mt-5 text-lg leading-relaxed text-foam/[0.8]">
+          Estamos a organizar a primeira quedada. Non hai data pechada, pero
+          quen está no Telegram entérase primeiro, e é quen decide onde e cando.
+        </p>
+      </div>
+
+      <a href={CONFIG.TELEGRAM_URL} target="_blank" rel="noopener noreferrer" class="group flex flex-shrink-0 items-center gap-4 rounded-md border border-coral/40 bg-coral/[0.10] px-7 py-5 transition-colors hover:bg-coral/[0.18] focus-visible:bg-coral/[0.18] focus-visible:outline focus-visible:outline-2 focus-visible:outline-coral">
+        <span class="h-2 w-2 flex-shrink-0 rounded-full bg-coral"></span>
+        <span class="flex flex-col">
+          <span class="font-mono text-sm font-medium text-coral">
+            Únete ao grupo de Telegram
+          </span>
+          <span class="font-mono text-xs text-coral/70">
+            así sabes o primeiro evento en canto exista
+          </span>
+        </span>
+        <span class="ml-2 text-coral transition-transform group-hover:translate-x-1">→</span>
+      </a>
+    </div>
+  </div>
+</article>
