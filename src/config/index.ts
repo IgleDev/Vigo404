@@ -6,5 +6,6 @@ export const CONFIG = {
     IMAGE_URL : '/img/image.webp',
     LOGO_URL : '/img/logo.png',
     GITHUB_URL : 'https://github.com/Vigo404',
-    TELEGRAM_URL: 'https://t.me/vigo404'
+    TELEGRAM_URL: 'https://t.me/vigo404',
+    LINKEDIN_URL: 'https://www.linkedin.com/in/vigo404/'
 }

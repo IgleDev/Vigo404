@@ -1,0 +1,64 @@
+---
+import { CONFIG } from '../config/index'
+import Layout from '../layouts/Layout.astro'
+
+const links = [
+  {
+    name: 'Web',
+    description: 'Visita o noso sitio principal',
+    url: '/',
+    icon: '🌐',
+  },
+  {
+    name: 'Telegram',
+    description: 'Únete á comunidade e fala con nós',
+    url: CONFIG.TELEGRAM_URL,
+    icon: '✈️',
+  },
+  {
+    name: 'GitHub',
+    description: 'Proxectos, código e contribucións',
+    url: CONFIG.GITHUB_URL,
+    icon: '⌘',
+  },
+  {
+    name: 'LinkedIn',
+    description: 'Segue as novidades e conecta con nós',
+    url: CONFIG.LINKEDIN_URL,
+    icon: 'in',
+  },
+]
+---
+<Layout>
+    <article class="mx-auto max-w-[720px] px-6 py-24">
+      <div class="mb-16 flex flex-col items-center gap-6 text-center">
+        <img src={CONFIG.LOGO_URL} alt={CONFIG.APP_NAME} class="h-28 w-28 rounded-full" />
+        <h1 class="font-display text-5xl font-semibold tracking-tight text-foam sm:text-6xl">
+          {CONFIG.APP_NAME}
+        </h1>
+        <p class="max-w-[520px] font-mono text-lg leading-relaxed text-mist">
+          {CONFIG.SITE_DESCRIPTION}
+        </p>
+      </div>
+    
+      <div class="flex flex-col gap-6">
+        {links.map((link) => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-6 rounded-md border border-foam/[0.14] px-8 py-7 font-mono transition-colors hover:border-foam hover:bg-foam/[0.06] focus-visible:border-foam focus-visible:outline focus-visible:outline-2 focus-visible:outline-foam"
+          >
+            <span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-amber/10 text-2xl font-semibold text-amber">
+              {link.icon}
+            </span>
+            <span class="flex flex-col gap-1">
+              <span class="text-xl font-medium text-foam">{link.name}</span>
+              <span class="text-base text-mist">{link.description}</span>
+            </span>
+            <span class="ml-auto text-2xl text-mist opacity-0 transition-opacity group-hover:opacity-100">→</span>
+          </a>
+        ))}
+      </div>
+    </article>
+</Layout>
