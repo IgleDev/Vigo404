@@ -1,5 +1,14 @@
 ---
 import { CONFIG } from '../config/index'
+
+const res = await fetch(
+  'https://api.github.com/users/Vigo404/repos?sort=updated&direction=desc&per_page=6'
+)
+
+const allRepos = res.ok ? await res.json() : []
+const repos = Array.isArray(allRepos)
+  ? allRepos.filter((r) => r.name !== 'Vigo404')
+  : []
 ---
 
 <article>
@@ -9,32 +18,30 @@ import { CONFIG } from '../config/index'
 
   <div class="max-w-[620px]">
     <h2 class="font-display text-[clamp(28px,3.6vw,38px)] font-semibold leading-tight tracking-tight">
-      Aínda non hai nada aquí. <span class="text-mist">Esa é a idea de partida.</span>
+      Isto está vivo. <span class="text-mist">Feito coa xente que forma parte diso.</span>
     </h2>
     <p class="mt-5 text-lg leading-relaxed text-foam/[0.8]">
-      Vigo404 non vai amosar proxectos de escaparate, vai construílos coa xente
+      Vigo404 non amosa proxectos de escaparate, constrúeos coa xente
       que forma parte diso. Un GitHub compartido, ideas propostas no grupo, e
       quen queira botar unha man, bótaa.
     </p>
   </div>
 
-  <div class="mt-12 flex flex-col items-start gap-6 rounded-md border border-dashed border-foam/20 p-8 sm:flex-row sm:items-center sm:justify-between">
-    <div class="flex items-center gap-4">
-      <span class="font-mono text-2xl text-mist">＋</span>
-      <p class="font-mono text-sm leading-relaxed text-mist">
-        primeiro repositorio<br />aínda por crear
-      </p>
-    </div>
+  {repos.map((repo) => (
+    <div class="mt-6 flex flex-col items-start gap-4 rounded-md border border-dashed border-deep-2/20 bg-white p-5 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-4">
+        <span class="font-mono text-2xl text-amber">＋</span>
+        <p class="font-mono text-sm leading-relaxed text-deep-2/70">
+          {repo.name}<br />{repo.description ?? 'sen descrición'}
+        </p>
+      </div>
 
-    <div class="flex flex-wrap gap-4">
-      <a href={CONFIG.GITHUB_URL} target="_blank" rel="noopener noreferrer"
-        class="rounded-[3px] border border-foam/20 px-5 py-3 font-mono text-sm text-foam transition-colors hover:border-foam hover:bg-foam/[0.06] focus-visible:border-foam focus-visible:outline focus-visible:outline-2 focus-visible:outline-foam">
-        Ver o GitHub
-      </a>
-      <a href="#unete"
-        class="rounded-[3px] bg-amber px-5 py-3 font-mono text-sm font-medium text-deep-2 transition-colors hover:bg-amber-light focus-visible:bg-amber-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-foam">
-        Propón un proxecto
-      </a>
+      <div class="flex flex-wrap gap-4">
+        <a href={repo.html_url} target="_blank" rel="noopener noreferrer"
+          class="rounded-[3px] bg-amber px-5 py-3 font-mono text-sm font-medium text-deep-2 transition-colors hover:bg-amber-light focus-visible:bg-amber-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-deep-2">
+          Ver o GitHub
+        </a>
+      </div>
     </div>
-  </div>
+))}
 </article>
