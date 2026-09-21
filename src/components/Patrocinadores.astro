@@ -1,0 +1,30 @@
+---
+
+---
+<article class="mx-auto max-w-[1180px] px-5 py-24 sm:px-8 sm:py-28 ">
+    <span class="mb-8 inline-flex items-center gap-2.5 rounded-full border border-foam/[0.14] px-3.5 py-[7px] font-mono text-[12.5px] uppercase tracking-[0.12em] text-mist before:content-['·'] before:text-[22px] before:leading-none before:text-amber">
+      patrocinadores
+    </span>
+  
+    <div class="max-w-[560px]">
+      <h2 class="font-display text-2xl font-semibold leading-tight tracking-tight sm:text-[28px]">
+        Aínda non temos ningún. Podes ser o primeiro.
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-foam/70">
+        Bares, coworkings, empresas de Vigo. Se queres apoiar a comunidade, escríbenos.
+      </p>
+    </div>
+  
+    <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+      {Array.from({ length: 8 }).map((_, i) => (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex aspect-[4/3] flex-col items-center justify-center gap-2 rounded-md border border-dashed border-foam/20 transition-colors hover:border-foam/40 hover:bg-foam/[0.03] focus-visible:border-foam/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-foam"
+        >
+          <span class="font-mono text-2xl text-mist/50 transition-colors group-hover:text-amber">+</span>
+          <span class="font-mono text-[11px] tracking-wide text-mist/50"></span>
+        </a>
+      ))}
+    </div>
+</article>

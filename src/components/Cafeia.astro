@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import 'glightbox/dist/css/glightbox.min.css';
+
+const modulos = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/cafeia/*/*.{jpg,jpeg,png,webp}',
+  { eager: true }
+);
+
+const grupos: Record<string, ImageMetadata[]> = {};
+for (const [path, mod] of Object.entries(modulos)) {
+  const carpeta = path.split('/').at(-2)!;
+  (grupos[carpeta] ??= []).push((mod as any).default);
+}
+const carpetas = Object.keys(grupos).sort();
+---
+
+<article class="mx-auto max-w-[1180px] px-5 py-24 sm:px-8 sm:py-28">
+  <div class="grid gap-10 md:grid-cols-[1fr_auto] md:items-start md:gap-16">
+    <div class="flex flex-row flex-wrap gap-3">
+      {carpetas.map((carpeta, gi) => {
+        const fotos = grupos[carpeta];
+        const [portada, ...resto] = fotos;
+        const numero = String(gi).padStart(2, '0');
+        return (
+          <>
+            <a
+              href={portada.src}
+              class="glightbox"
+              data-gallery={carpeta}
+              data-description={`Quedada #${numero}`}
+            >
+              <figure class="group relative h-28 w-28 overflow-hidden rounded-md border border-foam/10 transition-colors hover:border-amber/50 sm:h-32 sm:w-32">
+                <Image
+                  src={portada}
+                  alt={`Quedada #${numero}`}
+                  loading="lazy"
+                  class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <figcaption class="absolute bottom-1 left-1 rounded bg-deep-2/70 px-1 py-0.5 font-mono text-[9px] tracking-wide text-amber backdrop-blur-sm">
+                  #{numero}
+                </figcaption>
+              </figure>
+            </a>
+
+            {resto.map((img, i) => (
+              <a
+                href={img.src}
+                class="glightbox hidden"
+                data-gallery={carpeta}
+                data-description={`Quedada #${numero} — foto ${i + 2}`}
+              />
+            ))}
+          </>
+        );
+      })}
+    </div>
+
+    <div class="max-w-[320px] flex-shrink-0">
+      <h3 class="font-display text-[clamp(24px,3vw,32px)] font-semibold leading-tight tracking-tight">
+        Café AI. <span class="text-mist">falamos de código e de cafés.</span>
+      </h3>
+      <p class="mt-5 text-lg leading-relaxed text-foam/[0.8]">
+        Quedamos a tomar café, falar de intelixencia artificial e de cafés. Sen
+        charlas formais nin diapositivas, só facemos comunidade e tomamos
+        moito café.
+      </p>
+    </div>
+  </div>
+</article>
+
+<script>
+  import GLightbox from 'glightbox';
+
+  GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+  });
+</script>
